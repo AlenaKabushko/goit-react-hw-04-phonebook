@@ -5,17 +5,18 @@ import {
   TextStyle,
 } from './Contacts.styled';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 
 function ContactList(props) {
   return (
     <div>
       <ContactsListStyled>
         {props.allContacts.map(obj => (
-          <ContactsItemStyled key={obj.id}>
+          <ContactsItemStyled key={nanoid(4)}>
             <TextStyle>
               {obj.name}: {obj.number}
             </TextStyle>
-            <ButtonStyle type="button" onClick={() => props.onDelete(obj.id)}>
+            <ButtonStyle type="button" onClick={() => props.onDelete(obj.name)}>
               Delete
             </ButtonStyle>
           </ContactsItemStyled>
